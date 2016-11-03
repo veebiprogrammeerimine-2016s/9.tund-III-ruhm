@@ -3,6 +3,12 @@
 	require("functions.php");
 	require("editFunctions.php");
 	
+	/// kas aadressireal on delete
+	if(isset($_GET["delete"])){
+		// saadan kaasa aadressirealt id
+		deleteNote($_GET["id"]);
+	}
+	
 	//kas kasutaja uuendab andmeid
 	if(isset($_POST["update"])){
 		

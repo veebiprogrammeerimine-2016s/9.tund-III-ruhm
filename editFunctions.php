@@ -61,5 +61,27 @@
 		
 	}
 	
+	function deleteNote($id){
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		
+		$stmt = $mysqli->prepare("
+			UPDATE colorNotes 
+			SET deleted=NOW() 
+			WHERE id=? AND deleted IS NULL
+		");
+		$stmt->bind_param("i", $id);
+		
+		// kas õnnestus salvestada
+		if($stmt->execute()){
+			// õnnestus
+			echo "salvestus õnnestus!";
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		
+	}
+	
 	
 ?>
