@@ -11,7 +11,7 @@
 		
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		
-		$stmt = $mysqli->prepare("SELECT note, color FROM colorNotes WHERE id=?");
+		$stmt = $mysqli->prepare("SELECT note, color FROM colorNotes WHERE id=? AND deleted IS NULL");
 
 		$stmt->bind_param("i", $edit_id);
 		$stmt->bind_result($note, $color);
@@ -47,7 +47,7 @@
 		
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		
-		$stmt = $mysqli->prepare("UPDATE colorNotes SET note=?, color=? WHERE id=?");
+		$stmt = $mysqli->prepare("UPDATE colorNotes SET note=?, color=? WHERE id=? AND deleted IS NULL");
 		$stmt->bind_param("ssi",$note, $color, $id);
 		
 		// kas õnnestus salvestada

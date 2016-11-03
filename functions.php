@@ -109,6 +109,7 @@
 		$stmt = $mysqli->prepare("
 			SELECT id, note, color
 			FROM colorNotes
+			WHERE deleted IS NULL
 		");
 		
 		$stmt->bind_result($id, $note, $color);
