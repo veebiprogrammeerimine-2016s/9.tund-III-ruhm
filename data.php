@@ -98,6 +98,7 @@
 			$html .= "<td>".$note->id."</td>";
 			$html .= "<td>".$note->note."</td>";
 			$html .= "<td>".$note->noteColor."</td>";
+			$html .= "<td><a href='edit.php?id=".$note->id."'>edit.php</a></td>";
 		$html .= "</tr>";
 	}
 	
