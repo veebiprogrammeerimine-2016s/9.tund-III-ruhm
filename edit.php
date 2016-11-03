@@ -7,6 +7,9 @@
 	if(isset($_GET["delete"])){
 		// saadan kaasa aadressirealt id
 		deleteNote($_GET["id"]);
+		header("Location: data.php");
+		exit();
+		
 	}
 	
 	//kas kasutaja uuendab andmeid

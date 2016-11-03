@@ -87,7 +87,7 @@
 		echo "räsi ".$password."<br>";
 		
 		//kutsun funktsiooni, et salvestada
-		signup($signupEmail, $password);
+		$User->signup($signupEmail, $password);
 		
 	}	
 	
@@ -99,7 +99,7 @@
 			!empty($_POST["loginEmail"]) && 
 			!empty($_POST["loginPassword"]) 
 	) {
-		$notice = login($_POST["loginEmail"], $_POST["loginPassword"]);
+		$notice = $User->login($_POST["loginEmail"], $_POST["loginPassword"]);
 		
 		if(isset($notice->success)){
 			header("Location: login.php");
